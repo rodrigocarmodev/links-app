@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Layout from '../../../Layouts/Manage';
-import { linkGet } from '../../../../actions/LinkActions';
+import { linkGet, linkUpdate } from '../../../../actions/LinkActions';
+import { getFormData } from '../../../../helpers/form';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import FormGroup from '../../../../components/FormGroup';
@@ -13,13 +14,17 @@ const Edit = ({ link, linkGet }) => {
     linkGet(id);
   }, [id, linkGet]);
 
-  console.log('***Edit.link', link);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const data = getFormData(e);
+    linkUpdate(id, data);
+  };
 
   return (
     <Layout>
       <h1>Edit Link</h1>
       <div>
-        <form>
+        <form onSubmit={submitHandler}>
           <FormGroup label='Label' name='label' data={link} type='text' />
           <FormGroup label='Url' name='url' data={link} type='text' />
           <FormCheck label='Is Social' name='isSocial' data={link} />
