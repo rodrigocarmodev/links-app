@@ -2,7 +2,7 @@ import { setCookie, getCookie, removeCookie } from './storage';
 
 const expires = new Date();
 expires.setFullYear(expires.getFullYear() + 1);
-
+ 
 const options = { expires };
 
 export const COOKIE_ACCOUNT = 'acc';
