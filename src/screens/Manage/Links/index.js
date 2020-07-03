@@ -24,7 +24,10 @@ const Links = ({ links, linkList }) => {
       {links && links.length
         ? links.map((link) => {
             return (
-              <div key={link.id} className='pb-2 pt-2 pl-3 pr-3 d-flex flex-row justify-content-between'>
+              <div
+                key={link.id}
+                className='pb-2 pt-2 pl-3 pr-3 d-flex flex-row justify-content-between'
+              >
                 <div className='pr-3'>
                   <img src='https://via.placeholder.com/100' alt='Link Icon' />
                 </div>
@@ -33,7 +36,9 @@ const Links = ({ links, linkList }) => {
                   <span className='text-primary clearfix'>{link.url}</span>
                 </div>
                 <div className='ml-auto p-2 clearfix'>
-                  <span>Edit</span>
+                  <Link to={`/manage/links/edit/${link.id}`}>
+                    <span>Edit</span>
+                  </Link>
                   <span>Delete</span>
                 </div>
               </div>
