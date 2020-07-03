@@ -14,5 +14,5 @@ export const signUp = (data) => {
 };
 
 export const signOut = () => {
-  return { type: SIGN_UP };
+  return { type: SIGN_OUT };
 };

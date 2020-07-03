@@ -8,10 +8,10 @@ const Layout = ({ children, signOut, account }) => {
     return <Redirect to='/sign-in' />;
   }
 
-  const signOutHandler = (e) => {
-    e.preventDefault();
-    signOut();
-  };
+    const signOutHandler = (e) => {
+      e.preventDefault();
+      signOut();
+    };
 
   return (
     <div className='layout'>

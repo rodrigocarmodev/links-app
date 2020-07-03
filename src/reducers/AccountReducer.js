@@ -28,13 +28,13 @@ export default function (state = initialState, action) {
       if (token) setToken(token);
       if (refreshToken) setRefreshToken(refreshToken);
 
-      return { ...initialState, account };
+      return { ...state, account };
 
     case SIGN_OUT:
       removeAccount();
       removeToken();
       removeRefreshToken();
-      break;
+      return { ...initialState };
 
     default:
       return state;
